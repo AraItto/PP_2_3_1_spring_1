@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+</head>
+<body>
+<center>
+  <h1>Users List</h1>
+  <div>
+    <table border="1">
+      <tr>
+        <th><p style="font-size: 16px;">ID</p></th>
+        <th><p style="font-size: 16px;">Name</p></th>
+        <th><p style="font-size: 16px;">Surname</p></th>
+        <th><p style="font-size: 16px;">Age</p></th>
+        <th><p style="font-size: 16px;">Email</p></th>
+        <th><p style="font-size: 16px;">Operations</p></th>
+      </tr>
+
+<!--      <tr th:url="updateButton" value="/updateUser">-->
+<!--        <th param name="userId" value="${user.getId}"></th>-->
+<!--      </tr>-->
+      <tr th:url="deleteButton" value="/deleteUser">
+        <th param name="userId" value="${user.getId}"></th>
+      </tr>
+
+      <tr th:each ="user : ${users}">
+        <td th:utext="${user.getId}"></td>
+        <td th:utext="${user.getName}"></td>
+        <td th:utext="${user.getSurname}"></td>
+        <td th:utext="${user.getAge}"></td>
+        <td th:utext="${user.getEmail}"></td>
+        <td><form th:action="@{updateUser/{id}(id=${user.id})}" th:object="${user}">
+          <button type="submit">Update</button>
+        </form>
+          <form th:action="@{deleteUser/{id}(id=${user.id})}" th:object="${user}">
+            <button type="submit">Delete</button>
+          </form>
+          </td>
+      </tr>
+    </table>
+    <br>
+
+    <input type="button" value="Add"
+           onclick="window.location.href= 'addNewUser'"/>
+  </div>
+</center>
+</body>
+</html>

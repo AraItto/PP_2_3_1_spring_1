@@ -18,13 +18,6 @@
         <th><p style="font-size: 16px;">Operations</p></th>
       </tr>
 
-<!--      <tr th:url="updateButton" value="/updateUser">-->
-<!--        <th param name="userId" value="${user.getId}"></th>-->
-<!--      </tr>-->
-      <tr th:url="deleteButton" value="/deleteUser">
-        <th param name="userId" value="${user.getId}"></th>
-      </tr>
-
       <tr th:each ="user : ${users}">
         <td th:utext="${user.getId}"></td>
         <td th:utext="${user.getName}"></td>

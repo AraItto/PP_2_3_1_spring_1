@@ -23,7 +23,6 @@ import java.util.Properties;
 public class DbConfig {
     private Environment env;
 
-    @Autowired
     public DbConfig(Environment env) {
         this.env = env;
     }
